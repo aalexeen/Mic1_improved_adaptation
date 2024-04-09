@@ -127,8 +127,10 @@ public class CompPane extends JPanel{
 	public void run() {
 	  CompPane cpane = CompPane.this;
 	  try {
-    	    Thread.sleep(500);
-	  } catch (InterruptedException ex) {}
+    	    Thread.sleep(100);
+	  } catch (InterruptedException ex) {
+          ex.printStackTrace();
+      }
 	  try {
 	    comp.run();
 	    if (cpane.isErr()) {
@@ -140,6 +142,7 @@ public class CompPane extends JPanel{
 	  } catch (Exception ex) {
 	    cpane.append("assembly errors\n");
 	    cpane.setCancelText("Continue");
+        ex.printStackTrace();
 	  }
 	}}).start();
   }
@@ -175,7 +178,7 @@ public class CompPane extends JPanel{
     comp.setCPane(cpane);
     comp.setInputStream(in);
     comp.setOutputStream(out);
-    frm.setHelp(dialog, "assemview");
+    //frm.setHelp(dialog, "assemview");
     cpane.exec();
     dialog.show();
 

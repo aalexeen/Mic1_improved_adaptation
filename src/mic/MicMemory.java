@@ -260,6 +260,7 @@ public class MicMemory {
     displayPanel[idx].add(scrollPane[idx], BorderLayout.CENTER);
     JLabel lab = new JLabel(disText[idx]);
     lab.setFont(MMIO.labFont[Mic.reslvl]);
+    //lab.setForeground(Color.BLACK);
     displayPanel[idx].setPreferredSize(new Dimension(5*CtlCanvas.WID[Mic.reslvl], panelHt[Mic.reslvl][idx]));      
     displayPanel[idx].add(lab, BorderLayout.NORTH);
     subDisplay.removeAll();
@@ -284,6 +285,7 @@ public class MicMemory {
       setPreferredSize(new Dimension((memshow/(3*maxrow)+1)*CtlCanvas.WID[Mic.reslvl], panelHt[Mic.reslvl][idx]-40));      
     }
 
+      @Override
     public void paintComponent(Graphics g) {
       super.paintComponent(g);
       int colptr = 0;
@@ -320,6 +322,7 @@ public class MicMemory {
 	}
 	g.drawString(s, col+5, TOP+row*MEMSKIP[Mic.reslvl]);
 	g.setColor(hold);
+    //g.setColor(Color.black);
       }
     }
   }

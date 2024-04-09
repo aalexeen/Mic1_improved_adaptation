@@ -31,7 +31,7 @@
 package mic;
 
 import javax.swing.*;
-import javax.help.*;
+//import javax.help.*;
 import javax.swing.border.*;
 import javax.swing.event.*;
 import javax.swing.undo.*;
@@ -52,11 +52,17 @@ import java.awt.event.*;
  *   Oberlin, OH 44074
 */
 public class Mic extends JFrame {
-  public final static int[] WID = {1010, 625};
+  //public final static int[] WID = {1010, 625};
+  public final static int[] WID = {1280, 625};
+  //public final static int[] HT = {933, 597};
   public final static int[] HT = {933, 597};
+  //public final static int[] MID = {395, 240};
   public final static int[] MID = {395, 240};
+  //public final static int[] MEMSIZ = {485, 287};
   public final static int[] MEMSIZ = {485, 287};
+  //public final static int[] CTLSIZ = {65, 63};
   public final static int[] CTLSIZ = {65, 63};
+  //public final static int[] MMIOY = {770, 470};
   public final static int[] MMIOY = {770, 470};
   public final static int[] MMIOHT = {110, 75};
   public final static int[] HELPWID = {1100, 600};
@@ -112,8 +118,9 @@ public class Mic extends JFrame {
   // help system
 
   private String helpSetURL = "help/Mic1.hs";
-  private HelpSet hs = null;
-  private HelpBroker hb = null;
+  //private String helpSetURL = "help/UserGuide_hs.jar";
+  //private HelpSet hs = null;
+  //private HelpBroker hb = null;
 
   public Mic(String micFile) {
     super(title);
@@ -176,16 +183,16 @@ public class Mic extends JFrame {
     getDefaultMacFile(defaultMacFile);
     setSize(new Dimension(WID[reslvl], HT[reslvl]));
     micprefs.loadDefaults(props);
-    initHelp();
-    setHelp();
+    //initHelp();
+    //setHelp();
     setTitle();
   }
     
-  public void setHelp(Component comp, String ID) {
+  /*public void setHelp(Component comp, String ID) {
     CSH.setHelpIDString(comp, ID);
-  }
+  }*/
 
-  private void setHelp() {
+  /*private void setHelp() {
     helpMenuItem.addActionListener(new CSH.DisplayHelpAfterTracking(hb));
     setHelp(menuBar1, "menus");
     setHelp(canvas, "archview");
@@ -193,7 +200,7 @@ public class Mic extends JFrame {
     setHelp(ctlpanel, "commands");
     setHelp(ctlcvs, "insview");
     setHelp(mmio, "ioview");
-  }
+  }*/
 				   
   private void initDefaultProps() {
     defprops.setProperty("delay", "500");
@@ -300,7 +307,7 @@ public class Mic extends JFrame {
       break;
     case VIEWMAL:
       micText = new MicText(this, ctlcvs);
-      setHelp(micText, "msview");
+      //setHelp(micText, "msview");
       break;
     case IJVM:
       assAndLoad(false);
@@ -330,14 +337,15 @@ public class Mic extends JFrame {
   }
 
   private void help() {
-    hb.setDisplayed(true);
+    //hb.setDisplayed(true);
   }
 
-  private void initHelp() {
+  /*private void initHelp() {
     ClassLoader loader = this.getClass().getClassLoader();
     URL url;
     try {
       url = getClass().getResource(helpSetURL);
+      System.out.println(helpSetURL);
       if (url == null) throw new Exception("URL null");
       hs = new HelpSet(loader, url);
     } catch (Exception ee) {
@@ -352,7 +360,7 @@ public class Mic extends JFrame {
     } catch (javax.help.UnsupportedOperationException ex) {
       System.out.println(ex);
     }
-  }
+  }*/
   
   private void helpAbout_actionPerformed(ActionEvent e) {
     MicFrame_AboutBox dlg = new MicFrame_AboutBox(this);

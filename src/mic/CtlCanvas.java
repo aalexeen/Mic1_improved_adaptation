@@ -45,7 +45,8 @@ import javax.swing.*;
  *   Oberlin, OH 44074
 */
 class CtlCanvas extends JPanel {
-  public final static int[] WID = {600, 375};
+  //public final static int[] WID = {600, 375};
+  public final static int[] WID = {870, 375};
   public final static int[] HTH = {200, 100};
   public final static int[] MIRX = {20, 10};
   public final static int[] MIRY = {60, 30};
