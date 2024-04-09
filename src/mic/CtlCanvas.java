@@ -440,6 +440,7 @@ class CtlCanvas extends JPanel {
     frame.repaint();
   }
 
+  // MIC frame out
   public void parseMic(Mic1Instruction mi) {
     if (mi == null) return;
     mir[ADDR] = mi.NEXT_ADDRESS;
